@@ -22,19 +22,17 @@ We ran each test grammar through all three parsers:
 |---|---|---|---|---|
 | `grammar1.txt`, simple expression | 7 | 7 | 7 | none |
 | `grammar2.txt`, `+ * ( )` expressions | 12 | 22 | 12 | none |
-| `grammar3.txt`, `L = R` assignment grammar | 10 | 14 | 14 | **yes** / no / no |
+| `grammar3.txt`, `L = R` assignment grammar | 10 | 14 | 10 | **yes** / no / no |
 | `grammar_lalr_demo.txt` | 11 | 11 | 11 | **yes** / no / no |
-| `grammar_with_conflict.txt`, dangling else | 10 | 17 | 17 | yes / yes / yes |
+| `grammar_with_conflict.txt`, dangling else | 10 | 17 | 10 | yes / yes / yes |
 
 What the table shows:
 
-- **On the expression grammar, LR(1) needs almost twice as many states as SLR (22 vs 12).** LALR merges those back down to 12 without adding any conflicts. That's why real parser generators like yacc and bison use LALR.
-- **The `L = R` grammar is the textbook case SLR can't handle.** `=` is in FOLLOW(R), so SLR tries to reduce in the wrong place and gets a shift/reduce conflict. LR(1) and LALR use the actual lookahead and have no conflict.
+- **On the expression grammar, LR(1) needs almost twice as many states as SLR (22 vs 12).** LALR merges them back down to 12 without adding any conflicts. On every grammar here, LALR ends up with the same number of states as SLR but keeps LR(1)'s lookaheads. That's why real parser generators like yacc and bison use LALR.
+- **The `L = R` grammar is the textbook case SLR can't handle.** `=` is in FOLLOW(R), so SLR tries to reduce in the wrong place and gets a shift/reduce conflict. LR(1) and LALR use the actual lookahead and have no conflict. So `id = id` and `* id = id` get rejected by SLR but accepted by LR(1) and LALR.
 - **The dangling-else grammar is ambiguous**, so all three report a conflict. That's the right answer, because no LR parser can resolve it without an extra rule.
-- On the expression grammar, the SLR(1) and LR(1) parsers accept every expression string in `input/input_valid.txt` and reject every string in `input/input_invalid.txt` (`id +`, `( id + )`, `id * * id`, …).
+- On the expression grammar, all three parsers accept every expression string in `input/input_valid.txt` and reject every string in `input/input_invalid.txt` (`id +`, `( id + )`, `id * * id`, …).
 - SLR builds fastest (under 1 ms on these grammars). LR(1) and LALR take a few ms, because they compute lookaheads and LALR also merges states.
-
-**Known bug:** the LALR(1) state merging and conflict check work (the numbers above), but parsing with the LALR table doesn't. After a merge, its shift actions point to state `-1`, so the LALR trace rejects valid input. SLR(1) and LR(1) parsing work fine.
 
 Saved outputs from our runs are in `output/`: item sets, parsing tables, traces, parse trees and the comparison.
 

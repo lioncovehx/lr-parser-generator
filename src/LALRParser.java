@@ -122,11 +122,12 @@ public class LALRParser {
      * Used to group states that should be merged.
      */
     private String getCore(Set<LR1Items> state) {
-        List<String> coreItems = new ArrayList<>();
+        // A set, not a list: items that differ only in lookahead share one core entry,
+        // so a merged state has the same core as each canonical state it came from.
+        Set<String> coreItems = new TreeSet<>();
         for (LR1Items item : state) {
-            coreItems.add(item.lhs + " -> " + String.join(" ", item.rhs) + " | " + item.dotPosition);
+            coreItems.add(getCoreItemKey(item));
         }
-        Collections.sort(coreItems);
         return String.join(";", coreItems);
     }
 
