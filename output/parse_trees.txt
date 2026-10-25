@@ -1,0 +1,147 @@
+Parse tree samples from grammar2 valid run:
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    +-- Term
+        +-- Factor
+            +-- id
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    +-- Term
+        +-- Factor
+            +-- id
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    |-- Expr
+    |   +-- Term
+    |       +-- Factor
+    |           +-- id
+    |-- +
+    +-- Term
+        +-- Factor
+            +-- id
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    |-- Expr
+    |   +-- Term
+    |       +-- Factor
+    |           +-- id
+    |-- +
+    +-- Term
+        +-- Factor
+            +-- id
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    |-- Expr
+    |   |-- Expr
+    |   |   +-- Term
+    |   |       +-- Factor
+    |   |           +-- id
+    |   |-- +
+    |   +-- Term
+    |       +-- Factor
+    |           +-- id
+    |-- +
+    +-- Term
+        +-- Factor
+            +-- id
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    |-- Expr
+    |   |-- Expr
+    |   |   +-- Term
+    |   |       +-- Factor
+    |   |           +-- id
+    |   |-- +
+    |   +-- Term
+    |       +-- Factor
+    |           +-- id
+    |-- +
+    +-- Term
+        +-- Factor
+            +-- id
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    |-- Expr
+    |   +-- Term
+    |       +-- Factor
+    |           +-- id
+    |-- +
+    +-- Term
+        |-- Term
+        |   +-- Factor
+        |       +-- id
+        |-- *
+        +-- Factor
+            +-- id
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    |-- Expr
+    |   +-- Term
+    |       +-- Factor
+    |           +-- id
+    |-- +
+    +-- Term
+        |-- Term
+        |   +-- Factor
+        |       +-- id
+        |-- *
+        +-- Factor
+            +-- id
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    +-- Term
+        +-- Factor
+            |-- (
+            |-- Expr
+            |   +-- Term
+            |       +-- Factor
+            |           +-- id
+            +-- )
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    +-- Term
+        +-- Factor
+            |-- (
+            |-- Expr
+            |   +-- Term
+            |       +-- Factor
+            |           +-- id
+            +-- )
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    +-- Term
+        |-- Term
+        |   +-- Factor
+        |       |-- (
+        |       |-- Expr
+        |       |   |-- Expr
+        |       |   |   +-- Term
+        |       |   |       +-- Factor
+        |       |   |           +-- id
+        |       |   |-- +
+        |       |   +-- Term
+        |       |       +-- Factor
+        |       |           +-- id
+        |       +-- )
+        |-- *
+        +-- Factor
+            +-- id
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    +-- Term
+        |-- Term
+        |   +-- Factor
+        |       |-- (
+        |       |-- Expr
+        |       |   |-- Expr
+        |       |   |   +-- Term
+        |       |   |       +-- Factor
+        |       |   |           +-- id
+        |       |   |-- +
+        |       |   +-- Term
+        |       |       +-- Factor
+        |       |           +-- id
+        |       +-- )
+        |-- *
+        +-- Factor
+            +-- id

@@ -1,0 +1,203 @@
+State 0:
+  [ExprPrime -> . Expr , $]
+  [Expr -> . Expr + Term , $]
+  [Expr -> . Term , $]
+  [Expr -> . Expr + Term , +]
+  [Expr -> . Term , +]
+  [Term -> . Term * Factor , $]
+  [Term -> . Factor , $]
+  [Term -> . Term * Factor , +]
+  [Term -> . Factor , +]
+  [Term -> . Term * Factor , *]
+  [Term -> . Factor , *]
+  [Factor -> . ( Expr ) , $]
+  [Factor -> . id , $]
+  [Factor -> . ( Expr ) , +]
+  [Factor -> . id , +]
+  [Factor -> . ( Expr ) , *]
+  [Factor -> . id , *]
+---------------------------
+State 1:
+  [ExprPrime -> Expr . , $]
+  [Expr -> Expr . + Term , $]
+  [Expr -> Expr . + Term , +]
+---------------------------
+State 2:
+  [Term -> Factor . , $]
+  [Term -> Factor . , +]
+  [Term -> Factor . , *]
+---------------------------
+State 3:
+  [Factor -> ( . Expr ) , $]
+  [Factor -> ( . Expr ) , +]
+  [Factor -> ( . Expr ) , *]
+  [Expr -> . Expr + Term , )]
+  [Expr -> . Term , )]
+  [Expr -> . Expr + Term , +]
+  [Expr -> . Term , +]
+  [Term -> . Term * Factor , )]
+  [Term -> . Factor , )]
+  [Term -> . Term * Factor , +]
+  [Term -> . Factor , +]
+  [Term -> . Term * Factor , *]
+  [Term -> . Factor , *]
+  [Factor -> . ( Expr ) , )]
+  [Factor -> . id , )]
+  [Factor -> . ( Expr ) , +]
+  [Factor -> . id , +]
+  [Factor -> . ( Expr ) , *]
+  [Factor -> . id , *]
+---------------------------
+State 4:
+  [Expr -> Term . , $]
+  [Expr -> Term . , +]
+  [Term -> Term . * Factor , $]
+  [Term -> Term . * Factor , +]
+  [Term -> Term . * Factor , *]
+---------------------------
+State 5:
+  [Factor -> id . , $]
+  [Factor -> id . , +]
+  [Factor -> id . , *]
+---------------------------
+State 6:
+  [Expr -> Expr + . Term , $]
+  [Expr -> Expr + . Term , +]
+  [Term -> . Term * Factor , $]
+  [Term -> . Factor , $]
+  [Term -> . Term * Factor , +]
+  [Term -> . Factor , +]
+  [Term -> . Term * Factor , *]
+  [Term -> . Factor , *]
+  [Factor -> . ( Expr ) , $]
+  [Factor -> . id , $]
+  [Factor -> . ( Expr ) , +]
+  [Factor -> . id , +]
+  [Factor -> . ( Expr ) , *]
+  [Factor -> . id , *]
+---------------------------
+State 7:
+  [Factor -> ( Expr . ) , $]
+  [Factor -> ( Expr . ) , +]
+  [Factor -> ( Expr . ) , *]
+  [Expr -> Expr . + Term , )]
+  [Expr -> Expr . + Term , +]
+---------------------------
+State 8:
+  [Term -> Factor . , )]
+  [Term -> Factor . , +]
+  [Term -> Factor . , *]
+---------------------------
+State 9:
+  [Factor -> ( . Expr ) , )]
+  [Factor -> ( . Expr ) , +]
+  [Factor -> ( . Expr ) , *]
+  [Expr -> . Expr + Term , )]
+  [Expr -> . Term , )]
+  [Expr -> . Expr + Term , +]
+  [Expr -> . Term , +]
+  [Term -> . Term * Factor , )]
+  [Term -> . Factor , )]
+  [Term -> . Term * Factor , +]
+  [Term -> . Factor , +]
+  [Term -> . Term * Factor , *]
+  [Term -> . Factor , *]
+  [Factor -> . ( Expr ) , )]
+  [Factor -> . id , )]
+  [Factor -> . ( Expr ) , +]
+  [Factor -> . id , +]
+  [Factor -> . ( Expr ) , *]
+  [Factor -> . id , *]
+---------------------------
+State 10:
+  [Expr -> Term . , )]
+  [Expr -> Term . , +]
+  [Term -> Term . * Factor , )]
+  [Term -> Term . * Factor , +]
+  [Term -> Term . * Factor , *]
+---------------------------
+State 11:
+  [Factor -> id . , )]
+  [Factor -> id . , +]
+  [Factor -> id . , *]
+---------------------------
+State 12:
+  [Term -> Term * . Factor , $]
+  [Term -> Term * . Factor , +]
+  [Term -> Term * . Factor , *]
+  [Factor -> . ( Expr ) , $]
+  [Factor -> . id , $]
+  [Factor -> . ( Expr ) , +]
+  [Factor -> . id , +]
+  [Factor -> . ( Expr ) , *]
+  [Factor -> . id , *]
+---------------------------
+State 13:
+  [Expr -> Expr + Term . , $]
+  [Expr -> Expr + Term . , +]
+  [Term -> Term . * Factor , $]
+  [Term -> Term . * Factor , +]
+  [Term -> Term . * Factor , *]
+---------------------------
+State 14:
+  [Factor -> ( Expr ) . , $]
+  [Factor -> ( Expr ) . , +]
+  [Factor -> ( Expr ) . , *]
+---------------------------
+State 15:
+  [Expr -> Expr + . Term , )]
+  [Expr -> Expr + . Term , +]
+  [Term -> . Term * Factor , )]
+  [Term -> . Factor , )]
+  [Term -> . Term * Factor , +]
+  [Term -> . Factor , +]
+  [Term -> . Term * Factor , *]
+  [Term -> . Factor , *]
+  [Factor -> . ( Expr ) , )]
+  [Factor -> . id , )]
+  [Factor -> . ( Expr ) , +]
+  [Factor -> . id , +]
+  [Factor -> . ( Expr ) , *]
+  [Factor -> . id , *]
+---------------------------
+State 16:
+  [Factor -> ( Expr . ) , )]
+  [Factor -> ( Expr . ) , +]
+  [Factor -> ( Expr . ) , *]
+  [Expr -> Expr . + Term , )]
+  [Expr -> Expr . + Term , +]
+---------------------------
+State 17:
+  [Term -> Term * . Factor , )]
+  [Term -> Term * . Factor , +]
+  [Term -> Term * . Factor , *]
+  [Factor -> . ( Expr ) , )]
+  [Factor -> . id , )]
+  [Factor -> . ( Expr ) , +]
+  [Factor -> . id , +]
+  [Factor -> . ( Expr ) , *]
+  [Factor -> . id , *]
+---------------------------
+State 18:
+  [Term -> Term * Factor . , $]
+  [Term -> Term * Factor . , +]
+  [Term -> Term * Factor . , *]
+---------------------------
+State 19:
+  [Expr -> Expr + Term . , )]
+  [Expr -> Expr + Term . , +]
+  [Term -> Term . * Factor , )]
+  [Term -> Term . * Factor , +]
+  [Term -> Term . * Factor , *]
+---------------------------
+State 20:
+  [Factor -> ( Expr ) . , )]
+  [Factor -> ( Expr ) . , +]
+  [Factor -> ( Expr ) . , *]
+---------------------------
+State 21:
+  [Term -> Term * Factor . , )]
+  [Term -> Term * Factor . , +]
+  [Term -> Term * Factor . , *]
+---------------------------
+

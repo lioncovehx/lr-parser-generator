@@ -1,0 +1,59 @@
+State 0:
+  ExprPrime -> . Expr 
+  Expr -> . Expr + Term 
+  Expr -> . Term 
+  Term -> . Term * Factor 
+  Term -> . Factor 
+  Factor -> . ( Expr ) 
+  Factor -> . id 
+---------------------------
+State 1:
+  ExprPrime -> Expr .
+  Expr -> Expr . + Term 
+---------------------------
+State 2:
+  Term -> Factor .
+---------------------------
+State 3:
+  Factor -> ( . Expr ) 
+  Expr -> . Expr + Term 
+  Expr -> . Term 
+  Term -> . Term * Factor 
+  Term -> . Factor 
+  Factor -> . ( Expr ) 
+  Factor -> . id 
+---------------------------
+State 4:
+  Expr -> Term .
+  Term -> Term . * Factor 
+---------------------------
+State 5:
+  Factor -> id .
+---------------------------
+State 6:
+  Expr -> Expr + . Term 
+  Term -> . Term * Factor 
+  Term -> . Factor 
+  Factor -> . ( Expr ) 
+  Factor -> . id 
+---------------------------
+State 7:
+  Factor -> ( Expr . ) 
+  Expr -> Expr . + Term 
+---------------------------
+State 8:
+  Term -> Term * . Factor 
+  Factor -> . ( Expr ) 
+  Factor -> . id 
+---------------------------
+State 9:
+  Expr -> Expr + Term .
+  Term -> Term . * Factor 
+---------------------------
+State 10:
+  Factor -> ( Expr ) .
+---------------------------
+State 11:
+  Term -> Term * Factor .
+---------------------------
+

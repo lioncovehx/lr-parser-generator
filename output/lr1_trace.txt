@@ -1,0 +1,424 @@
+--- Task 2.3: LR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      id $                      s5             
+2     [5, id, 0]                               $                         r(Factor->id)  
+3     [2, Factor, 0]                           $                         r(Term->Factor)
+4     [4, Term, 0]                             $                         r(Expr->Term)  
+5     [1, Expr, 0]                             $                         acc            
+
+Result: String accepted successfully!
+
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    +-- Term
+        +-- Factor
+            +-- id
+
+====================================================
+Input: id + id
+
+--- Task 1.5: SLR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      id + id $                 s5             
+2     [5, id, 0]                               + id $                    r(Factor->id)  
+3     [2, Factor, 0]                           + id $                    r(Term->Factor)
+4     [4, Term, 0]                             + id $                    r(Expr->Term)  
+5     [1, Expr, 0]                             + id $                    s6             
+6     [6, +, 1, Expr, 0]                       id $                      s5             
+7     [5, id, 6, +, 1, Expr, 0]                $                         r(Factor->id)  
+8     [2, Factor, 6, +, 1, Expr, 0]            $                         r(Term->Factor)
+9     [9, Term, 6, +, 1, Expr, 0]              $                         r(Expr->Expr + Term)
+10    [1, Expr, 0]                             $                         acc            
+
+Result: String accepted successfully!
+
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    |-- Expr
+    |   +-- Term
+    |       +-- Factor
+    |           +-- id
+    |-- +
+    +-- Term
+        +-- Factor
+            +-- id
+
+--- Task 2.3: LR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      id + id $                 s5             
+2     [5, id, 0]                               + id $                    r(Factor->id)  
+3     [2, Factor, 0]                           + id $                    r(Term->Factor)
+4     [4, Term, 0]                             + id $                    r(Expr->Term)  
+5     [1, Expr, 0]                             + id $                    s6             
+6     [6, +, 1, Expr, 0]                       id $                      s5             
+7     [5, id, 6, +, 1, Expr, 0]                $                         r(Factor->id)  
+8     [2, Factor, 6, +, 1, Expr, 0]            $                         r(Term->Factor)
+9     [13, Term, 6, +, 1, Expr, 0]             $                         r(Expr->Expr + Term)
+10    [1, Expr, 0]                             $                         acc            
+
+Result: String accepted successfully!
+
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    |-- Expr
+    |   +-- Term
+    |       +-- Factor
+    |           +-- id
+    |-- +
+    +-- Term
+        +-- Factor
+            +-- id
+
+====================================================
+Input: id + id + id
+
+--- Task 1.5: SLR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      id + id + id $            s5             
+2     [5, id, 0]                               + id + id $               r(Factor->id)  
+3     [2, Factor, 0]                           + id + id $               r(Term->Factor)
+4     [4, Term, 0]                             + id + id $               r(Expr->Term)  
+5     [1, Expr, 0]                             + id + id $               s6             
+6     [6, +, 1, Expr, 0]                       id + id $                 s5             
+7     [5, id, 6, +, 1, Expr, 0]                + id $                    r(Factor->id)  
+8     [2, Factor, 6, +, 1, Expr, 0]            + id $                    r(Term->Factor)
+9     [9, Term, 6, +, 1, Expr, 0]              + id $                    r(Expr->Expr + Term)
+10    [1, Expr, 0]                             + id $                    s6             
+11    [6, +, 1, Expr, 0]                       id $                      s5             
+12    [5, id, 6, +, 1, Expr, 0]                $                         r(Factor->id)  
+13    [2, Factor, 6, +, 1, Expr, 0]            $                         r(Term->Factor)
+14    [9, Term, 6, +, 1, Expr, 0]              $                         r(Expr->Expr + Term)
+15    [1, Expr, 0]                             $                         acc            
+
+Result: String accepted successfully!
+
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    |-- Expr
+    |   |-- Expr
+    |   |   +-- Term
+    |   |       +-- Factor
+    |   |           +-- id
+    |   |-- +
+    |   +-- Term
+    |       +-- Factor
+    |           +-- id
+    |-- +
+    +-- Term
+        +-- Factor
+            +-- id
+
+--- Task 2.3: LR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      id + id + id $            s5             
+2     [5, id, 0]                               + id + id $               r(Factor->id)  
+3     [2, Factor, 0]                           + id + id $               r(Term->Factor)
+4     [4, Term, 0]                             + id + id $               r(Expr->Term)  
+5     [1, Expr, 0]                             + id + id $               s6             
+6     [6, +, 1, Expr, 0]                       id + id $                 s5             
+7     [5, id, 6, +, 1, Expr, 0]                + id $                    r(Factor->id)  
+8     [2, Factor, 6, +, 1, Expr, 0]            + id $                    r(Term->Factor)
+9     [13, Term, 6, +, 1, Expr, 0]             + id $                    r(Expr->Expr + Term)
+10    [1, Expr, 0]                             + id $                    s6             
+11    [6, +, 1, Expr, 0]                       id $                      s5             
+12    [5, id, 6, +, 1, Expr, 0]                $                         r(Factor->id)  
+13    [2, Factor, 6, +, 1, Expr, 0]            $                         r(Term->Factor)
+14    [13, Term, 6, +, 1, Expr, 0]             $                         r(Expr->Expr + Term)
+15    [1, Expr, 0]                             $                         acc            
+
+Result: String accepted successfully!
+
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    |-- Expr
+    |   |-- Expr
+    |   |   +-- Term
+    |   |       +-- Factor
+    |   |           +-- id
+    |   |-- +
+    |   +-- Term
+    |       +-- Factor
+    |           +-- id
+    |-- +
+    +-- Term
+        +-- Factor
+            +-- id
+
+====================================================
+Input: id + id * id
+
+--- Task 1.5: SLR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      id + id * id $            s5             
+2     [5, id, 0]                               + id * id $               r(Factor->id)  
+3     [2, Factor, 0]                           + id * id $               r(Term->Factor)
+4     [4, Term, 0]                             + id * id $               r(Expr->Term)  
+5     [1, Expr, 0]                             + id * id $               s6             
+6     [6, +, 1, Expr, 0]                       id * id $                 s5             
+7     [5, id, 6, +, 1, Expr, 0]                * id $                    r(Factor->id)  
+8     [2, Factor, 6, +, 1, Expr, 0]            * id $                    r(Term->Factor)
+9     [9, Term, 6, +, 1, Expr, 0]              * id $                    s8             
+10    [8, *, 9, Term, 6, +, 1, Expr, 0]        id $                      s5             
+11    [5, id, 8, *, 9, Term, 6, +, 1, Expr, 0] $                         r(Factor->id)  
+12    [11, Factor, 8, *, 9, Term, 6, +, 1, Expr, 0] $                         r(Term->Term * Factor)
+13    [9, Term, 6, +, 1, Expr, 0]              $                         r(Expr->Expr + Term)
+14    [1, Expr, 0]                             $                         acc            
+
+Result: String accepted successfully!
+
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    |-- Expr
+    |   +-- Term
+    |       +-- Factor
+    |           +-- id
+    |-- +
+    +-- Term
+        |-- Term
+        |   +-- Factor
+        |       +-- id
+        |-- *
+        +-- Factor
+            +-- id
+
+--- Task 2.3: LR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      id + id * id $            s5             
+2     [5, id, 0]                               + id * id $               r(Factor->id)  
+3     [2, Factor, 0]                           + id * id $               r(Term->Factor)
+4     [4, Term, 0]                             + id * id $               r(Expr->Term)  
+5     [1, Expr, 0]                             + id * id $               s6             
+6     [6, +, 1, Expr, 0]                       id * id $                 s5             
+7     [5, id, 6, +, 1, Expr, 0]                * id $                    r(Factor->id)  
+8     [2, Factor, 6, +, 1, Expr, 0]            * id $                    r(Term->Factor)
+9     [13, Term, 6, +, 1, Expr, 0]             * id $                    s12            
+10    [12, *, 13, Term, 6, +, 1, Expr, 0]      id $                      s5             
+11    [5, id, 12, *, 13, Term, 6, +, 1, Expr, 0] $                         r(Factor->id)  
+12    [18, Factor, 12, *, 13, Term, 6, +, 1, Expr, 0] $                         r(Term->Term * Factor)
+13    [13, Term, 6, +, 1, Expr, 0]             $                         r(Expr->Expr + Term)
+14    [1, Expr, 0]                             $                         acc            
+
+Result: String accepted successfully!
+
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    |-- Expr
+    |   +-- Term
+    |       +-- Factor
+    |           +-- id
+    |-- +
+    +-- Term
+        |-- Term
+        |   +-- Factor
+        |       +-- id
+        |-- *
+        +-- Factor
+            +-- id
+
+====================================================
+Input: ( id )
+
+--- Task 1.5: SLR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      ( id ) $                  s3             
+2     [3, (, 0]                                id ) $                    s5             
+3     [5, id, 3, (, 0]                         ) $                       r(Factor->id)  
+4     [2, Factor, 3, (, 0]                     ) $                       r(Term->Factor)
+5     [4, Term, 3, (, 0]                       ) $                       r(Expr->Term)  
+6     [7, Expr, 3, (, 0]                       ) $                       s10            
+7     [10, ), 7, Expr, 3, (, 0]                $                         r(Factor->( Expr ))
+8     [2, Factor, 0]                           $                         r(Term->Factor)
+9     [4, Term, 0]                             $                         r(Expr->Term)  
+10    [1, Expr, 0]                             $                         acc            
+
+Result: String accepted successfully!
+
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    +-- Term
+        +-- Factor
+            |-- (
+            |-- Expr
+            |   +-- Term
+            |       +-- Factor
+            |           +-- id
+            +-- )
+
+--- Task 2.3: LR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      ( id ) $                  s3             
+2     [3, (, 0]                                id ) $                    s11            
+3     [11, id, 3, (, 0]                        ) $                       r(Factor->id)  
+4     [8, Factor, 3, (, 0]                     ) $                       r(Term->Factor)
+5     [10, Term, 3, (, 0]                      ) $                       r(Expr->Term)  
+6     [7, Expr, 3, (, 0]                       ) $                       s14            
+7     [14, ), 7, Expr, 3, (, 0]                $                         r(Factor->( Expr ))
+8     [2, Factor, 0]                           $                         r(Term->Factor)
+9     [4, Term, 0]                             $                         r(Expr->Term)  
+10    [1, Expr, 0]                             $                         acc            
+
+Result: String accepted successfully!
+
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    +-- Term
+        +-- Factor
+            |-- (
+            |-- Expr
+            |   +-- Term
+            |       +-- Factor
+            |           +-- id
+            +-- )
+
+====================================================
+Input: ( id + id ) * id
+
+--- Task 1.5: SLR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      ( id + id ) * id $        s3             
+2     [3, (, 0]                                id + id ) * id $          s5             
+3     [5, id, 3, (, 0]                         + id ) * id $             r(Factor->id)  
+4     [2, Factor, 3, (, 0]                     + id ) * id $             r(Term->Factor)
+5     [4, Term, 3, (, 0]                       + id ) * id $             r(Expr->Term)  
+6     [7, Expr, 3, (, 0]                       + id ) * id $             s6             
+7     [6, +, 7, Expr, 3, (, 0]                 id ) * id $               s5             
+8     [5, id, 6, +, 7, Expr, 3, (, 0]          ) * id $                  r(Factor->id)  
+9     [2, Factor, 6, +, 7, Expr, 3, (, 0]      ) * id $                  r(Term->Factor)
+10    [9, Term, 6, +, 7, Expr, 3, (, 0]        ) * id $                  r(Expr->Expr + Term)
+11    [7, Expr, 3, (, 0]                       ) * id $                  s10            
+12    [10, ), 7, Expr, 3, (, 0]                * id $                    r(Factor->( Expr ))
+13    [2, Factor, 0]                           * id $                    r(Term->Factor)
+14    [4, Term, 0]                             * id $                    s8             
+15    [8, *, 4, Term, 0]                       id $                      s5             
+16    [5, id, 8, *, 4, Term, 0]                $                         r(Factor->id)  
+17    [11, Factor, 8, *, 4, Term, 0]           $                         r(Term->Term * Factor)
+18    [4, Term, 0]                             $                         r(Expr->Term)  
+19    [1, Expr, 0]                             $                         acc            
+
+Result: String accepted successfully!
+
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    +-- Term
+        |-- Term
+        |   +-- Factor
+        |       |-- (
+        |       |-- Expr
+        |       |   |-- Expr
+        |       |   |   +-- Term
+        |       |   |       +-- Factor
+        |       |   |           +-- id
+        |       |   |-- +
+        |       |   +-- Term
+        |       |       +-- Factor
+        |       |           +-- id
+        |       +-- )
+        |-- *
+        +-- Factor
+            +-- id
+
+--- Task 2.3: LR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      ( id + id ) * id $        s3             
+2     [3, (, 0]                                id + id ) * id $          s11            
+3     [11, id, 3, (, 0]                        + id ) * id $             r(Factor->id)  
+4     [8, Factor, 3, (, 0]                     + id ) * id $             r(Term->Factor)
+5     [10, Term, 3, (, 0]                      + id ) * id $             r(Expr->Term)  
+6     [7, Expr, 3, (, 0]                       + id ) * id $             s15            
+7     [15, +, 7, Expr, 3, (, 0]                id ) * id $               s11            
+8     [11, id, 15, +, 7, Expr, 3, (, 0]        ) * id $                  r(Factor->id)  
+9     [8, Factor, 15, +, 7, Expr, 3, (, 0]     ) * id $                  r(Term->Factor)
+10    [19, Term, 15, +, 7, Expr, 3, (, 0]      ) * id $                  r(Expr->Expr + Term)
+11    [7, Expr, 3, (, 0]                       ) * id $                  s14            
+12    [14, ), 7, Expr, 3, (, 0]                * id $                    r(Factor->( Expr ))
+13    [2, Factor, 0]                           * id $                    r(Term->Factor)
+14    [4, Term, 0]                             * id $                    s12            
+15    [12, *, 4, Term, 0]                      id $                      s5             
+16    [5, id, 12, *, 4, Term, 0]               $                         r(Factor->id)  
+17    [18, Factor, 12, *, 4, Term, 0]          $                         r(Term->Term * Factor)
+18    [4, Term, 0]                             $                         r(Expr->Term)  
+19    [1, Expr, 0]                             $                         acc            
+
+Result: String accepted successfully!
+
+--- Task 3.3: Generated Parse Tree ---
++-- Expr
+    +-- Term
+        |-- Term
+        |   +-- Factor
+        |       |-- (
+        |       |-- Expr
+        |       |   |-- Expr
+        |       |   |   +-- Term
+        |       |   |       +-- Factor
+        |       |   |           +-- id
+        |       |   |-- +
+        |       |   +-- Term
+        |       |       +-- Factor
+        |       |           +-- id
+        |       +-- )
+        |-- *
+        +-- Factor
+            +-- id
+
+====================================================
+Input: id = id
+
+--- Task 1.5: SLR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      id = id $                 s5             
+2     [5, id, 0]                               = id $                                   
+
+Result: Error - String rejected.
+
+--- Task 2.3: LR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      id = id $                 s5             
+2     [5, id, 0]                               = id $                                   
+
+Result: Error - String rejected.
+
+====================================================
+Input: * id = id
+
+--- Task 1.5: SLR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      * id = id $                              
+
+Result: Error - String rejected.
+
+--- Task 2.3: LR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      * id = id $                              
+
+Result: Error - String rejected.
+
+====================================================
+Input: if id then other
+
+--- Task 1.5: SLR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      if id then other $                       
+
+Result: Error - String rejected.
+
+--- Task 2.3: LR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      if id then other $                       
+
+Result: Error - String rejected.
+
+====================================================
+Input: if id then other else other
+
+--- Task 1.5: SLR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      if id then other else other $                
+
+Result: Error - String rejected.
+
+--- Task 2.3: LR(1) Parsing Trace ---
+Step  Stack                                    Input                     Action         
+1     [0]                                      if id then other else other $                
+
+Result: Error - String rejected.

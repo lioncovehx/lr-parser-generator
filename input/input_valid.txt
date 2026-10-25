@@ -1,0 +1,11 @@
+id
+id + id
+id + id + id
+id + id * id
+( id )
+( id + id ) * id
+id = id
+* id = id
+if id then other
+if id then other else other
+

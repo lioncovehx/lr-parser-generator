@@ -1,0 +1,17 @@
+Grammar 2 (expression)
+SLR(1) States: 12 | Time: 0.8128 ms
+LR(1) States: 22 | Time: 10.592589 ms
+SLR(1) Conflicts Found: No
+LR(1) Conflicts Found: No
+
+Grammar 3 (SLR conflict example)
+SLR(1) States: 10 | Time: 0.377318 ms
+LR(1) States: 14 | Time: 1.354733 ms
+SLR(1) Conflicts Found: Yes
+LR(1) Conflicts Found: No
+
+Dangling else grammar
+SLR(1) States: 10 | Time: 0.392945 ms
+LR(1) States: 17 | Time: 1.871592 ms
+SLR(1) Conflicts Found: Yes
+LR(1) Conflicts Found: Yes
